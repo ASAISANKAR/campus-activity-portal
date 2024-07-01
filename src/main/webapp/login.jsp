@@ -10,9 +10,9 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cap", "root", "admin");
-
-        String sql = "SELECT * FROM register WHERE username=? AND password=?";
+       conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cap", "root", "admin");
+       
+       String sql = "SELECT * FROM register WHERE username=? AND password=?";
         stmt = conn.prepareStatement(sql);
         stmt.setString(1, username);
         stmt.setString(2, password);
@@ -22,7 +22,7 @@
         rs = stmt.executeQuery();
         System.out.println("Query Executed");
 
-        if (rs.next()) {
+        if (rs.next()) {	
             response.sendRedirect("home.jsp");  
         } 
     } catch (SQLException | ClassNotFoundException e) {
