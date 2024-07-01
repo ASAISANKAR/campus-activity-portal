@@ -10,7 +10,7 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/campus_activity_portal", "root", "Fahim@123");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cap", "root", "admin");
 
         // Check if user already exists
         String checkSql = "SELECT * FROM register WHERE username=?";
@@ -48,5 +48,5 @@
             e.printStackTrace();
         }
     }
-    response.sendRedirect("loginsignup.jsp");
+    response.sendRedirect("index.jsp");
 %>

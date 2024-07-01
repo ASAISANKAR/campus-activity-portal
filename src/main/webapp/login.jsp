@@ -10,7 +10,7 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/campus_activity_portal", "root", "Fahim@123");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cap", "root", "admin");
 
         String sql = "SELECT * FROM register WHERE username=? AND password=?";
         stmt = conn.prepareStatement(sql);
@@ -23,15 +23,8 @@
         System.out.println("Query Executed");
 
         if (rs.next()) {
-            // Valid credentials, redirect to index.jsp
-            response.sendRedirect("index.jsp");
-            System.out.println("credentials validated");
-            response.sendRedirect("index.jsp");
-            
-        } else {
-            // Invalid credentials, redirect back to login page with error message
-            response.sendRedirect("loginsignup.jsp?error=1");
-        }
+            response.sendRedirect("home.jsp");  
+        } 
     } catch (SQLException | ClassNotFoundException e) {
         e.printStackTrace();
     } finally {
@@ -43,6 +36,6 @@
             e.printStackTrace();
         }
     }
-    response.sendRedirect("loginsignup.jsp");
+    response.sendRedirect("index.jsp");
     
 %>
