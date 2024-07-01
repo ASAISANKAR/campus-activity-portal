@@ -11,8 +11,6 @@
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cap", "root", "admin");
-        
-
 
         // Check if user already exists
         String checkSql = "SELECT * FROM register WHERE username=?";
@@ -22,33 +20,33 @@
 
         if (rs.next()) {
             // User already exists, handle accordingly
-        	response.sendRedirect("exist.jsp");
-            
+            response.sendRedirect("exist.jsp");
         } else {
             // User does not exist, insert into register table
             String insertSql = "INSERT INTO register (username, password) VALUES (?, ?)";
             stmt = conn.prepareStatement(insertSql);
             stmt.setString(1, username);
             stmt.setString(2, password);
-            
+
             int rowsAffected = stmt.executeUpdate();
 
             if (rowsAffected > 0) {
-                out.println("Registration successful");
+                response.sendRedirect("userprofile.jsp");
             } else {
-                out.println("Registration failed");
+                response.sendRedirect("error.jsp");
             }
         }
     } catch (SQLException | ClassNotFoundException e) {
-        e.printStackTrace();
+        // Log the exception or handle it appropriately
+        e.printStackTrace(); // This should ideally log to a file or logger
+        response.sendRedirect("error.jsp");
     } finally {
         try {
             if (rs != null) rs.close();
             if (stmt != null) stmt.close();
             if (conn != null) conn.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Log or handle the exception
         }
     }
-    response.sendRedirect("index.jsp");
 %>

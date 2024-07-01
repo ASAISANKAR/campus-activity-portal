@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
         * {
-            margin: 0;	
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
@@ -159,42 +158,31 @@
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="form-wrapper sign-in">
-            <form action="login.jsp" method="post">
-                <h2>Login</h2>
+   
+ 
+        <div class="form-wrapper sign-up">
+            <form action="register.jsp" method="post">
+                <h2>Sign Up</h2>
                 <div class="input-group">
                     <input type="text" name="username" required>
                     <label for="">Username</label>
                 </div>
+                
                 <div class="input-group">
                     <input type="password" name="password" required>
                     <label for="">Password</label>
                 </div>
                 <div class="remember">
-                    <label><input type="checkbox"> Remember me</label>
+                    <label><input type="checkbox" required> I agree to the terms & conditions</label>
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit">Sign Up</button>
                 <div class="signUp-link">
-                    <p style="color:red;">Note: Username is Student Id or Employee Id</p>
+                   
                 </div>
             </form>
         </div>
-      
-    </div>
+    
 
-    <script>
-        const signInBtnLink = document.querySelector('.signInBtn-link');
-        const signUpBtnLink = document.querySelector('.signUpBtn-link');
-        const wrapper = document.querySelector('.wrapper');
-        
-        signUpBtnLink.addEventListener('click', () => {
-            wrapper.classList.add('active');
-        });
-        
-        signInBtnLink.addEventListener('click', () => {
-            wrapper.classList.remove('active');
-        });
-    </script>
+   
 </body>
 </html>

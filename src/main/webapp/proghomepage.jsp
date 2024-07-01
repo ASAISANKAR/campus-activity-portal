@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<jsp:include page="navbar.jsp" />
+<title>Programmer</title>
+<jsp:include page="prognavbar.jsp" />
 </head>
 <body>
-<h1 align="center">Welcome to the public page</h1>
+<h1 align="center">Programmers Home Page</h1>
 </body>
 </html>

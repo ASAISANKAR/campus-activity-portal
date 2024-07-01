@@ -21,10 +21,33 @@
 
         rs = stmt.executeQuery();
         System.out.println("Query Executed");
-
+        int lk=0;
+        for(int i=0;i<username.length();i++)
+        {
+        	if(username.charAt(i)-'0'<0 || username.charAt(i)-'0'>9)
+        	{
+        		lk=1;
+        	}
+        }
+        for(int i=0;i<password.length();i++)
+        {
+        	if(password.charAt(i)-'0'<0 || password.charAt(i)-'0'>9)
+        	{
+        		lk=1;
+        	}
+        }
         if (rs.next()) {	
-            response.sendRedirect("home.jsp");  
+        	if((username.equals("admin") && password.equals("admin")) || (username.equals("ss") && password.equals("ss")))
+        		response.sendRedirect("adminhomepage.jsp");
+        	else if(username.length()==10 && password.length()==10 && lk==0)
+        	{
+        		response.sendRedirect("proghomepage.jsp");
+        	}
+        	else
+        		response.sendRedirect("home.jsp");  
         } 
+        else
+        	 response.sendRedirect("index.jsp");
     } catch (SQLException | ClassNotFoundException e) {
         e.printStackTrace();
     } finally {
@@ -36,6 +59,6 @@
             e.printStackTrace();
         }
     }
-    response.sendRedirect("index.jsp");
+   
     
 %>
