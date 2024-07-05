@@ -57,6 +57,8 @@
     </div>
     <ul>
         <li><a href="proghomepage.jsp">Home</a></li>
+        <li><a href="eventreg.jsp">Event Register</a></li>
+        <li><a href="events.jsp">Events</a></li>
         <li><a href="index.jsp">Logout</a></li>
     </ul>
 </nav>

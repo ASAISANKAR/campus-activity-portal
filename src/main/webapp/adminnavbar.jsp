@@ -57,7 +57,7 @@
     </div>
     <ul>
         <li><a href="adminhomepage.jsp">Home</a></li>
-        <li><a href="EmpMang.jsp">Emp Management</a></li>
+        <li><a href="EmpMang.jsp">Programmer Management</a></li>
         <li><a href="">Attendance</a></li>
         <li><a href="">Reports</a></li>
         <li><a href="userprofile.jsp">CRUD</a></li>

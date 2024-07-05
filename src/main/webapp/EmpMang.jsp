@@ -30,7 +30,7 @@
      <div class="card" style="width: 18rem;">
   <img src="https://coralogix.com/wp-content/uploads/2016/01/Log-query-1000X1000-.png" alt="...">
   <div class="card-body">
-    <a href="#" class="btn btn-success">Log's Data</a>
+    <a href="logs.jsp" class="btn btn-success">Log's Data</a>
   </div>
 </div>
     </div>
@@ -41,7 +41,7 @@
      <div class="card" style="width: 20rem;">
   <img src="https://quixy.com/wp-content/uploads/2022/10/Time-Management-Activities.png" height="300"  width="320" alt="...">
   <div class="card-body">
-    <a href="#" class="btn btn-success">Activity Management</a>
+    <a href="adminevents.jsp" class="btn btn-success">Activity Management</a>
   </div>
 </div>
     </div>

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, java.io.*" %>
+<%@ page import="java.sql.*, java.io.*, java.time.LocalDateTime, java.sql.Timestamp" %>
 <%
     String username = request.getParameter("username");
     String password = request.getParameter("password");
 
     Connection conn = null;
     PreparedStatement stmt = null;
-    ResultSet rs = null;
+    ResultSet rs = null;	
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -37,6 +37,18 @@
         	}
         }
         if (rs.next()) {	
+        	  String insertSql = "INSERT INTO LOGIN (username, password, datetime,validity) VALUES (?, ?, ?,?)";
+              PreparedStatement insertStmt = conn.prepareStatement(insertSql);
+              insertStmt.setString(1, username);
+              insertStmt.setString(2, password);
+              insertStmt.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+              insertStmt.setString(4,"true");
+              insertStmt.executeUpdate();
+             
+              
+              
+            System.out.println("Logs updated");
+        	
         	if((username.equals("admin") && password.equals("admin")) || (username.equals("ss") && password.equals("ss")))
         		response.sendRedirect("adminhomepage.jsp");
         	else if(username.length()==10 && password.length()==10 && lk==0)
@@ -47,7 +59,17 @@
         		response.sendRedirect("home.jsp");  
         } 
         else
-        	 response.sendRedirect("index.jsp");
+        {
+        	String insertSql = "INSERT INTO LOGIN (username, password, datetime,validity) VALUES (?, ?, ?,?)";
+            PreparedStatement insertStmt = conn.prepareStatement(insertSql);
+            insertStmt.setString(1, username);
+            insertStmt.setString(2, password);
+            insertStmt.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+            insertStmt.setString(4,"false");
+            insertStmt.executeUpdate();
+            response.sendRedirect("index.jsp");
+        }
+        	
     } catch (SQLException | ClassNotFoundException e) {
         e.printStackTrace();
     } finally {
