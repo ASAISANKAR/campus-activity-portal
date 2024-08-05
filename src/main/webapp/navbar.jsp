@@ -57,6 +57,7 @@
     </div>
     <ul>
         <li><a href="home.jsp">Home</a></li>
+        <li><a href="regevents.jsp">Register Events</a>
         <li><a href="index.jsp">Logout</a></li>
     </ul>
 </nav>
